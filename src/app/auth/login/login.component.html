@@ -1,1 +1,19 @@
-<p>login works!</p>
+<section class="signup-form" fxLayoutAlign="center center" >
+  <mat-card> 
+    <mat-card-title>Login</mat-card-title>
+    <form  [formGroup]="loginForm" fxLayout="column" fxLayoutGap="10px">
+      <mat-form-field>
+        <input type="email" matInput placeholder="Email" formControlName="email">
+        <mat-hint>Por favor informe um e-mail válido.</mat-hint>
+        <mat-error>Por favor informe um e-mail válido.</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input type="password" matInput placeholder="Senha" formControlName="password">
+        <mat-hint>Por favor informe a senha.</mat-hint>
+        <mat-error>Por favor informe a senhal.</mat-error>
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">Entrar</button>
+    </form>
+  </mat-card>
+</section>
+

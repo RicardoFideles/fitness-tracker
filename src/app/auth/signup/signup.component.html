@@ -1,8 +1,8 @@
-<section class="signup-form" fxLayoutAlign="center center">
+<section class="signup-form" fxLayoutAlign="center center" >
   <mat-card> 
-    <mat-card-title>Contrubee Signup</mat-card-title>
+    <mat-card-title>Cadastre-se</mat-card-title>
 
-    <form  #f="ngForm" (ngSubmit)="onSubmit(f)" fxLayout="column">
+    <form  #f="ngForm" (ngSubmit)="onSubmit(f)" fxLayout="column" fxLayoutGap="10px">
       <mat-form-field>
         <input type="email" matInput placeholder="Email" ngModel name="email" email #emailInput="ngModel" required>
         <mat-error *ngIf="emailInput.hasError('required')">O email não pode ser vazio.</mat-error>
@@ -15,11 +15,12 @@
         <mat-error>A senha deve conter um mínimo de 6 caracteres.</mat-error>
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="Data de Nascimento" [matDatepicker]="picker" [max]="maxDate">
+        <input matInput placeholder="Data de Nascimento" [matDatepicker]="picker" [max]="maxDate" ngModel name="bithdate">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
-      <button mat-raised-button color="primary" type="submit">Entrar</button>
+      <mat-checkbox ngModel name="agree" required>Agree to Terms and Conditions</mat-checkbox>
+      <button mat-raised-button color="primary" type="submit" [disabled]="" >Entrar</button>
     </form>
   </mat-card>
 </section>
