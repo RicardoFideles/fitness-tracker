@@ -1,7 +1,7 @@
 <section class="signup-form" fxLayoutAlign="center center" >
   <mat-card> 
     <mat-card-title>Login</mat-card-title>
-    <form  [formGroup]="loginForm" fxLayout="column" fxLayoutGap="10px">
+    <form  [formGroup]="loginForm" fxLayout="column" fxLayoutGap="10px" (ngSubmit)="onSubmit()">
       <mat-form-field>
         <input type="email" matInput placeholder="Email" formControlName="email">
         <mat-hint>Por favor informe um e-mail válido.</mat-hint>
