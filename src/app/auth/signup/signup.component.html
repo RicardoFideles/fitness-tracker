@@ -1,31 +1,43 @@
-<section class="signup-form">
-  <form fxLayout="column" fxLayoutAlign="center center" #f="ngForm" (ngSubmit)="onSubmit(f)"> 
-    <mat-form-field>
-      <input 
-        type="email" 
-        matInput 
-        placeholder="Your Email" 
-        ngModel 
-        name="email" 
-        email
-        #emailInput="ngModel"
-        required>
-        <mat-error *ngIf="emailInput.hasError('required')">Field must not be empty.</mat-error>
-        <mat-error *ngIf="!emailInput.hasError('required')">E-mail is invalid.</mat-error>
-    </mat-form-field>
-    <mat-form-field hintLabel="Should be at least 6 characteres long.">
-      <input 
-        type="password" 
-        matInput 
-        placeholder="Your Password" 
-        ngModel name="password" 
-        autocomplete="off"
-        minlength="6"
-        #pwInput="ngModel"
-        required>
+<section class="signup-form" fxLayoutAlign="center center">
+  <mat-card> 
+    <mat-card-title>Contrubee Signup</mat-card-title>
+
+    <form  #f="ngForm" (ngSubmit)="onSubmit(f)" fxLayout="column">
+      <mat-form-field>
+        <input type="email" matInput placeholder="Email" ngModel name="email" email #emailInput="ngModel" required>
+        <mat-error *ngIf="emailInput.hasError('required')">O email não pode ser vazio.</mat-error>
+        <mat-error *ngIf="!emailInput.hasError('required')">E-mail inválido.</mat-error>
+      </mat-form-field>
+      <mat-form-field hintLabel="A senha deve conter um mínimo de 6 caracteres.">
+        <input type="password" matInput placeholder="Senha" ngModel name="password" autocomplete="off"
+          minlength="6" #pwInput="ngModel" required>
         <mat-hint align="end">{{ pwInput.value?.length}} / 6</mat-hint>
-        <mat-error>Should be at least 6 characteres long.</mat-error>
-    </mat-form-field>
-    <button mat-raised-button color="primary" type="submit">Submit</button>
-  </form>
+        <mat-error>A senha deve conter um mínimo de 6 caracteres.</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Data de Nascimento" [matDatepicker]="picker" [max]="maxDate">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit">Entrar</button>
+    </form>
+  </mat-card>
 </section>
+
+
+<!-- <div fxLayout="row" fxLayoutAlign="center center" class="row-height">
+  <mat-card fxFlex="30%">
+      <mat-card-title>Login</mat-card-title>
+
+      <mat-card-content fxLayout="column">
+          <mat-form-field>
+              <input matInput placeholder="Username">
+          </mat-form-field>
+          <mat-form-field>
+              <input matInput placeholder="Password">
+          </mat-form-field>
+      </mat-card-content>
+
+      <button mat-raised-button color="accent">Login</button>
+  </mat-card>
+</div> -->
