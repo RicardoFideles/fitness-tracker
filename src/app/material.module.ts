@@ -11,6 +11,10 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatListModule} from '@angular/material/list';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatSelectModule} from '@angular/material/select';
+
+
 
 
 @NgModule({
@@ -26,6 +30,8 @@ import {MatListModule} from '@angular/material/list';
     MatSidenavModule,
     MatToolbarModule,
     MatListModule,
+    MatTabsModule,
+    MatSelectModule,
     MatInputModule],
   exports: [
     MatButtonModule, 
@@ -39,6 +45,8 @@ import {MatListModule} from '@angular/material/list';
     MatSidenavModule,
     MatToolbarModule,
     MatListModule,
+    MatTabsModule,
+    MatSelectModule,
     MatInputModule],
   providers: [{ provide: LOCALE_ID, useValue: 'pt-BR' }]
 })
