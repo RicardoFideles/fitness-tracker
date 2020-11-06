@@ -16,6 +16,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatTableModule} from '@angular/material/table';
 
 
 
@@ -39,6 +40,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatProgressSpinnerModule,
     MatProgressBarModule,
     MatDialogModule,
+    MatTableModule,
     MatInputModule],
   exports: [
     MatButtonModule, 
@@ -57,6 +59,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatProgressSpinnerModule,
     MatProgressBarModule,
     MatDialogModule,
+    MatTableModule,
     MatInputModule],
   providers: [{ provide: LOCALE_ID, useValue: 'pt-BR' }]
 })

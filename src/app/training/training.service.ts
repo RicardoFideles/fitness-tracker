@@ -1,5 +1,5 @@
 import { Exercise } from './exercise.model'
-import { Subject } from 'rxjs/Subject'
+import { Subject } from 'rxjs'
 export class TrainingService {
 
     execiseChange = new Subject<Exercise>();
@@ -12,6 +12,7 @@ export class TrainingService {
     ]
 
     private runningExercise : Exercise;
+    private exercises : Exercise[] = [];
 
     getAvailableExercises() {
         //create a copy of the array, so it can be afect by any changes in other components or services.
@@ -25,5 +26,27 @@ export class TrainingService {
 
     getRunningExercise() {
         return {... this.runningExercise};
+    }
+
+    completeExercise() {
+        this.exercises.push({ ... this.runningExercise, date : new Date(), state : 'completed'});
+        this.runningExercise = null;
+        this.execiseChange.next(null);
+    }
+
+    cancelExercise(progreess : number) {
+        this.exercises.push({
+            ... this.runningExercise, 
+            duration : this.runningExercise.duration * (progreess / 100), 
+            calories : this.runningExercise.calories * (progreess / 100), 
+            date : new Date(), 
+            state : 'cancelled'
+        });
+        this.runningExercise = null;
+        this.execiseChange.next(null);
+    }
+
+    getExercises() {
+        return this.exercises.slice()
     }
 }
